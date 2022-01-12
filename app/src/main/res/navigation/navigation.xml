@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/trackingFragment">
+
+    <fragment
+        android:id="@+id/trackingFragment"
+        android:name="com.bhaveshsp.trackmysleepquantity.TrackingFragment"
+        android:label="fragment_tracking"
+        tools:layout="@layout/fragment_tracking" >
+        <action
+            android:id="@+id/action_trackingFragment_to_qualityFragment"
+            app:destination="@id/qualityFragment"
+            app:popUpTo="@id/trackingFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/qualityFragment"
+        android:name="com.bhaveshsp.trackmysleepquantity.QualityFragment"
+        android:label="fragment_quality"
+        tools:layout="@layout/fragment_quality" >
+        <action
+            android:id="@+id/action_qualityFragment_to_trackingFragment"
+            app:destination="@id/trackingFragment"
+            app:popUpTo="@id/trackingFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="nightId"
+            app:argType="long" />
+    </fragment>
+</navigation>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="sleep"
+            type="com.bhaveshsp.trackmysleepquantity.Sleep"
+            />
+        <variable
+            name="clickListener"
+            type="com.bhaveshsp.trackmysleepquantity.SleepRecycleView.SleepListener"
+            />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="20dp"
+        android:onClick="@{()->clickListener.onClick(sleep)}"
+        >
+
+        <ImageView
+            android:id="@+id/qualityImageView"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            tools:srcCompat="@drawable/ic_sleep_0"
+            app:sleepQualityImage="@{sleep}"
+            />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                tools:text="Hours of Sleep"
+                app:sleepDuration="@{sleep}"
+                />
+
+            <TextView
+                android:id="@+id/sleepQualityText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                tools:text="Excellent"
+                app:sleepQuality="@{sleep}"
+                />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</layout>
